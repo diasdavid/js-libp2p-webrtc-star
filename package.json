@@ -65,6 +65,7 @@
     "peer-id": "^0.8.1",
     "peer-info": "^0.8.2",
     "pull-stream": "^3.5.0",
+    "segfault-handler": "^1.0.0",
     "simple-peer": "6.2.1",
     "socket.io": "^1.7.2",
     "socket.io-client": "^1.7.2",

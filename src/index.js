@@ -14,6 +14,8 @@ const PeerInfo = require('peer-info')
 const Connection = require('interface-connection').Connection
 const toPull = require('stream-to-pull-stream')
 const once = require('once')
+const SegfaultHandler = require('segfault-handler')
+SegfaultHandler.registerHandler('crash.log')
 
 const noop = once(() => {})
 
@@ -77,7 +79,7 @@ class WebRTCStar {
 
     // NOTE: aegir segfaults if we do .once on the socket.io event emitter and we
     // are clueless as to why.
-    sioClient.on('ws-handshake', (offer) => {
+    sioClient.once('ws-handshake', (offer) => {
       if (offer.intentId === intentId && offer.err) {
         return callback(new Error(offer.err))
       }
