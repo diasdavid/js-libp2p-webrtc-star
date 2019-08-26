@@ -22,6 +22,7 @@ jobs:
         - npx aegir commitlint --travis
         - npx aegir dep-check -- -i wrtc -i electron-webrtc
         - npm run lint
+        - npm run generate-typings
 
     - stage: test
       name: chrome

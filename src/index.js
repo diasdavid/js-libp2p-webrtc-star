@@ -1,4 +1,7 @@
 'use strict'
+/**
+ * @module js-libp2p-webrtc-star
+ */
 
 const debug = require('debug')
 const log = debug('libp2p:webrtc-star')
@@ -25,8 +28,14 @@ const sioOptions = {
   transports: ['websocket'],
   'force new connection': true
 }
-
+/**
+ * @class
+ */
 class WebRTCStar {
+  /**
+   *
+   * @param {*} options
+   */
   constructor (options) {
     options = options || {}
 
@@ -57,6 +66,12 @@ class WebRTCStar {
     this._peerDiscovered = this._peerDiscovered.bind(this)
   }
 
+  /**
+   *
+   * @param {*} ma
+   * @param {object} options
+   * @param {function} callback
+   */
   dial (ma, options, callback) {
     if (typeof options === 'function') {
       callback = options
@@ -128,7 +143,11 @@ class WebRTCStar {
 
     return conn
   }
-
+  /**
+   *
+   * @param {object} options
+   * @param {function} handler 
+   */
   createListener (options, handler) {
     if (typeof options === 'function') {
       handler = options
@@ -228,7 +247,10 @@ class WebRTCStar {
     this.listenersRefs[multiaddr.toString()] = listener
     return listener
   }
-
+  /**
+   *
+   * @param {*} multiaddrs
+   */
   filter (multiaddrs) {
     if (!Array.isArray(multiaddrs)) {
       multiaddrs = [multiaddrs]
@@ -242,7 +264,10 @@ class WebRTCStar {
       return mafmt.WebRTCStar.matches(ma)
     })
   }
-
+  /**
+   *
+   * @param {*} maStr
+   */
   _peerDiscovered (maStr) {
     if (!this.discovery._isStarted) return
 

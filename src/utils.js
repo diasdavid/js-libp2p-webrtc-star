@@ -1,7 +1,12 @@
 'use strict'
-
+/**
+ * @module js-libp2p-webrtc-star/utils
+ */
 const multiaddr = require('multiaddr')
 
+/**
+ * @param {*} ma
+ */
 function cleanUrlSIO (ma) {
   const maStrSplit = ma.toString().split('/')
   const tcpProto = ma.protos()[1].name
@@ -25,6 +30,9 @@ function cleanUrlSIO (ma) {
   }
 }
 
+/**
+ * @param {*} maStr 
+ */
 function cleanMultiaddr (maStr) {
   const legacy = '/libp2p-webrtc-star'
 

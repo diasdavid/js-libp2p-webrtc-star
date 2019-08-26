@@ -4,6 +4,7 @@
   "description": "libp2p WebRTC transport that includes a discovery mechanism provided by the signalling-star",
   "leadMaintainer": "Vasco Santos <vasco.santos@moxy.studio>",
   "main": "src/index.js",
+  "typings": "src/types.d.ts",
   "bin": {
     "webrtc-star": "src/sig-server/bin.js",
     "star-sig": "src/sig-server/bin.js",
@@ -22,7 +23,8 @@
     "release-minor": "aegir release --type minor -t node -t browser",
     "release-major": "aegir release --type major -t node -t browser",
     "coverage": "aegir coverage",
-    "coverage-publish": "aegir coverage --provider coveralls"
+    "coverage-publish": "aegir coverage --provider coveralls",
+    "generate-typings": "./node_modules/.bin/jsdoc -c ./.jsdoc.json"
   },
   "pre-push": [
     "lint",
@@ -50,7 +52,10 @@
     "chai": "^4.2.0",
     "dirty-chai": "^2.0.1",
     "electron-webrtc": "~0.3.0",
+    "jsdoc": "^3.6.3",
     "prom-client": "^11.2.1",
+    "tsd-jsdoc": "^2.3.1",
+    "typescript-definition-tester": "0.0.6",
     "wrtc": "~0.3.7"
   },
   "dependencies": {
